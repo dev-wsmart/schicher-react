@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, NavLink, BrowserRouter, Link } from 'react-router-dom';
+import { Row, Col, Container, Navbar } from 'react-bootstrap';
 import './App.css';
 import './fontface.css';
 import logo from './schicher-logo.png';
@@ -7,12 +8,14 @@ import map from './image/map.png';
 import phone from './image/phone.png';
 
 import Home from './Home/Home';
+import About from './About/About';
+import Service from './Service/Service';
 
 class App extends React.Component{
   render(){
     return(
       <BrowserRouter>
-        <div className="container">
+        <Container>
           <div className="d-none d-md-block">
             <div className="d-flex bd-highlight mb-5">
               <div className="mr-auto bd-highlight">
@@ -23,15 +26,21 @@ class App extends React.Component{
                 </NavLink>
               </div>
               <div className="bd-highlight lang-link">
-                <Link>TH</Link>&nbsp;|&nbsp; 
-                <Link>EN</Link>&nbsp;|&nbsp;
-                <Link>DE</Link>
+                <Link to="/">TH</Link>&nbsp;|&nbsp; 
+                <Link to="/">EN</Link>&nbsp;|&nbsp;
+                <Link to="/">DE</Link>
               </div>
             </div>
             <div className="nav d-block justify-content-center">
               <NavLink activeClassName="active" to="/" exact={true}>หน้าหลัก</NavLink>
               <NavLink activeClassName="active" to="/about">เกี่ยวกับเรา</NavLink>
-              <NavLink activeClassName="active" to="/service">บริการของเรา</NavLink>
+              <div className="service-dropdown">
+                <NavLink to="/service">บริการของเรา</NavLink>
+                <div className="nav-dropdown">
+                    <Link to="/service">บริการคุณภาพ</Link>
+                    <Link to="/customerinfo">ฝากข้อมูลติดต่อกลับ</Link>
+                </div>
+              </div>
               <NavLink activeClassName="active" to="/partner">พาร์ทเนอร์</NavLink>
               <NavLink activeClassName="active" to="/promotion">โปรโมชั่น</NavLink>
               <NavLink activeClassName="active" to="/news">ข่าวสารและกิจกรรม</NavLink>
@@ -40,14 +49,12 @@ class App extends React.Component{
             </div>
           </div>
           <div className="d-block d-md-none">
-            <nav class="navbar navbar-expand-lg navbar-dark mb-3">
-              <a class="navbar-brand animate__animated animate__fadeInDown" href="javascript:void(0)">
-                  <img src={logo}/>
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <Navbar expand="lg" className="mb-3">
+              <Navbar.Brand href="/">
+                <img src={logo}/>
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls="collapse"/>
+              <Navbar.Collapse id="collapse">
                 <div className="navbar-nav">
                   <NavLink className="nav-link" to="/" exact={true} >หน้าหลัก</NavLink>
                   <NavLink className="nav-link" to="/about">เกี่ยวกับเรา</NavLink>
@@ -59,45 +66,43 @@ class App extends React.Component{
                   <NavLink className="nav-link" to="/contactus">ติดต่อเรา</NavLink>
                 </div>
                 <div className="lang-link-m">
-                  <Link>TH</Link>&nbsp;|&nbsp; 
-                  <Link>EN</Link>&nbsp;|&nbsp;
-                  <Link>DE</Link>
+                  <Link to="/">TH</Link>&nbsp;|&nbsp; 
+                  <Link to="/">EN</Link>&nbsp;|&nbsp;
+                  <Link to="/">DE</Link>
                 </div>
-              </div>
-            </nav>
+              </Navbar.Collapse>
+            </Navbar>
           </div>
           <div className="content">
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <Home/>
+              </Route>
+              <Route path="/about">
+                <About/>
+              </Route>
+              <Route path="/service">
+                <Service/>
               </Route>
             </Switch>
           </div>
-          <div className="footer row">
-            <div className="col-12 col-lg-6 left-col">
+          <Row className="footer">
+            <Col xs={12} lg={6} className="left-col">
               <div className="sitemap-title">
                 แผนผังเว็บไซต์
               </div>
-              <table>
-                <tr>
-                  <td><Link to="/">หน้าหลัก</Link></td>
-                  <td><Link to="/partner">พาร์ทเนอร์</Link></td>
-                </tr>
-                <tr>
-                  <td><Link to="/about">เกี่ยวกับเรา</Link></td>
-                  <td><Link to="/news">ข่าวสารและกิจกรรม</Link></td>
-                </tr>
-                <tr>
-                  <td><Link to="/service">บริการของเรา</Link></td>
-                  <td><Link to="/gallary">แกลลอรี่</Link></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><Link to="/contactus">ติดต่อเรา</Link></td>
-                </tr>
-              </table>
-            </div>
-            <div className="col-12 col-lg-6 right-col">
+              <Row>
+                  <Col xs={12} lg={6}><Link to="/">หน้าหลัก</Link></Col>
+                  <Col xs={12} lg={6}><Link to="/partner">พาร์ทเนอร์</Link></Col>
+                  <Col xs={12} lg={6}><Link to="/about">เกี่ยวกับเรา</Link></Col>
+                  <Col xs={12} lg={6}><Link to="/news">ข่าวสารและกิจกรรม</Link></Col>
+                  <Col xs={12} lg={6}><Link to="/service">บริการของเรา</Link></Col>
+                  <Col xs={12} lg={6}><Link to="/gallery">แกลลอรี่</Link></Col>
+                  <Col xs={12} lg={6}></Col>
+                  <Col xs={12} lg={6}><Link to="/contactus">ติดต่อเรา</Link></Col>
+              </Row>
+            </Col>
+            <Col xs={12} lg={6} className="right-col">
               <div className="map">
                 <img src={map}/>
               </div>
@@ -105,9 +110,9 @@ class App extends React.Component{
                 <img src={phone}/>
                 <b>02-002-1234</b>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </BrowserRouter>
     )
   }

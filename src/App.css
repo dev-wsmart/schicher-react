@@ -20,6 +20,10 @@ body{
   text-align: center;
   padding-bottom: 4px;
 }
+#collapse{
+  margin-top: 10px;
+}
+
 .nav a {
   padding: 8px 10px;
   margin: 0 10px;
@@ -92,6 +96,41 @@ body{
   color: #ffffff !important;
 }
 
+.nav-dropdown{
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  margin-left: 10px;
+  margin-top: 3px;
+  border-radius: 5px;
+  padding: 5px 0px;
+  box-shadow: 0 3px 10px #3030305b;
+}
+
+.service-dropdown{
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.service-dropdown:hover .nav-dropdown{
+  display: block;
+}
+
+.nav-dropdown a{
+  text-align: left;
+  border-radius: 0px !important;
+  color: black !important;
+  display: block;
+  min-width: 200px;
+  margin: 0px !important;
+}
+
+.nav-dropdown a:hover{
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+
 .navbar .navbar-brand img{
   width: 95px;
   height: 65px;
@@ -153,4 +192,20 @@ body{
 
 .footer img{
   width: 50%;
+}
+
+@media only screen and (max-width: 991px) {
+  .footer .left-col .sitemap-title{
+    padding-left: 0em;
+  }
+
+  .footer .left-col{
+    padding-left: 0%;
+    text-align: center;
+  }
+
+  .footer .right-col{
+    border-left: none;
+    margin-top: 20px;
+  }
 }
