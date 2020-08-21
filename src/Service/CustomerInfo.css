@@ -1,0 +1,29 @@
+.customerinfo-content{
+    margin: 30px 20px;
+}
+.thank-you-section{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.thank-you-section img{
+    width: 10%;
+    border-radius: 10%;
+    box-shadow: 1px 3px 5px 1px #888888;
+}
+
+.form-control{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form-left, .form-right{
+    background-color: #012C49;
+    padding: 10px 20px;
+}
+
+.btn-call{
+    margin-top: 20px;
+    text-align: right;
+}

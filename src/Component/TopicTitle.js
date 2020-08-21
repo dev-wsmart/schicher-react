@@ -6,7 +6,7 @@ import car from '../image/car.png';
 class Title extends React.Component{
     render(){
         return(
-            <Row className="home-title">
+            <Row className="topic-title">
                 <div className="title">
                     <div className="title-circle">
                         <img src={car} />

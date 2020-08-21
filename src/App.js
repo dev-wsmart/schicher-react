@@ -3,6 +3,7 @@ import { Switch, Route, NavLink, BrowserRouter, Link } from 'react-router-dom';
 import { Row, Col, Container, Navbar } from 'react-bootstrap';
 import './App.css';
 import './fontface.css';
+import getTranslation from './lang';
 import logo from './schicher-logo.png';
 import map from './image/map.png';
 import phone from './image/phone.png';
@@ -10,8 +11,18 @@ import phone from './image/phone.png';
 import Home from './Home/Home';
 import About from './About/About';
 import Service from './Service/Service';
+import CustomerInfo from './Service/CustomerInfo';
+import Partner from './Partner/Partner';
 
 class App extends React.Component{
+  state = { 
+    lang: 'en' 
+  };
+  
+  changeLanguageHandler = (lang) => {
+    this.setState({ lang: lang });
+  }
+
   render(){
     return(
       <BrowserRouter>
@@ -26,9 +37,9 @@ class App extends React.Component{
                 </NavLink>
               </div>
               <div className="bd-highlight lang-link">
-                <Link to="/">TH</Link>&nbsp;|&nbsp; 
-                <Link to="/">EN</Link>&nbsp;|&nbsp;
-                <Link to="/">DE</Link>
+                <Link onClick={this.changeLanguageHandler.bind(this, 'th')}>TH</Link>&nbsp;|&nbsp; 
+                <Link onClick={this.changeLanguageHandler.bind(this, 'en')}>EN</Link>&nbsp;|&nbsp;
+                <Link onClick={this.changeLanguageHandler.bind(this, 'de')}>DE</Link>
               </div>
             </div>
             <div className="nav d-block justify-content-center">
@@ -83,6 +94,12 @@ class App extends React.Component{
               </Route>
               <Route path="/service">
                 <Service/>
+              </Route>
+              <Route path="/customerinfo">
+                <CustomerInfo/>
+              </Route>
+              <Route path="/partner">
+                <Partner/>
               </Route>
             </Switch>
           </div>
