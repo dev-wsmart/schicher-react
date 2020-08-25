@@ -1,0 +1,34 @@
+.frame-promotion{
+    color: #ffffff;
+    background-color: #012C49;
+    margin-top: 20px;
+}
+
+.frame-promotion .title{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 30px;
+    margin: 0px;
+}
+
+.frame-promotion .frame-content img{
+    width: 100%;
+}
+
+.frame-promotion .frame-content{
+    padding: 10px;
+}
+
+.frame-content .button{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+}
+
+.frame-content .button .btn{
+    background-color: #000000;
+}
+
+.promotion-content{
+    margin-top: 30px;
+}

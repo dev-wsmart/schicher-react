@@ -13,6 +13,7 @@ import About from './About/About';
 import Service from './Service/Service';
 import CustomerInfo from './Service/CustomerInfo';
 import Partner from './Partner/Partner';
+import Promotion from './Promotion/Promotion';
 
 class App extends React.Component{
   state = { 
@@ -60,7 +61,7 @@ class App extends React.Component{
             </div>
           </div>
           <div className="d-block d-md-none">
-            <Navbar expand="lg" className="mb-3">
+            <Navbar expand="lg" variant="dark" className="mb-3">
               <Navbar.Brand href="/">
                 <img src={logo}/>
               </Navbar.Brand>
@@ -100,6 +101,9 @@ class App extends React.Component{
               </Route>
               <Route path="/partner">
                 <Partner/>
+              </Route>
+              <Route path="/Promotion">
+                <Promotion/>
               </Route>
             </Switch>
           </div>
